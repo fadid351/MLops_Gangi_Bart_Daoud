@@ -19,17 +19,30 @@ expériences suivies dans MLflow, modèle servi par une API, CI automatisée.
 
 ## Résultats
 
-> À compléter après `make train` (voir `reports/summary.json` et `reports/test_metrics_all_models.csv`).
+Validation croisée stratifiée à 5 plis sur le train (32 561 lignes), puis évaluation unique
+sur le jeu de test officiel (16 281 lignes). Scores de test au seuil 0,5.
 
-| Modèle | ROC-AUC (CV) | ROC-AUC (test) | F1 (test) | PR-AUC (test) |
-|---|---|---|---|---|
-| Baseline (classe majoritaire) | 0,500 | 0,500 | 0,000 | |
-| Régression logistique | | | | |
-| Arbre de décision | | | | |
-| Random Forest | | | | |
-| **Gradient Boosting** | | | | |
+| Modèle | ROC-AUC (CV) | ROC-AUC (test) | PR-AUC (test) | F1 (test) | Accuracy (test) |
+|---|---|---|---|---|---|
+| Baseline (classe majoritaire) | 0,500 | — | — | 0,000 | 0,759 (CV) |
+| KNN (défaut) | 0,898 | — | — | — | — |
+| Régression logistique | 0,898 | 0,897 | 0,728 | 0,664 | 0,800 |
+| Arbre de décision | 0,907 | 0,905 | 0,761 | 0,640 | 0,858 |
+| Random Forest | 0,920 | 0,917 | 0,806 | 0,681 | 0,867 |
+| **Gradient Boosting** | **0,929** | **0,927** | **0,825** | **0,708** | **0,873** |
 
-**Modèle retenu : …** — justification dans [`notebooks/02_modeling.ipynb`](notebooks/02_modeling.ipynb), section 9.
+**Modèle retenu : Gradient Boosting** (`HistGradientBoostingClassifier`), avec un seuil de
+décision de **0,42** optimisé pour le F1 : sur le test, **F1 = 0,718**, precision = 0,72,
+recall = 0,71.
+
+Pourquoi : meilleur sur toutes les métriques, très stable entre les plis (écart-type 0,0015),
+même score en test qu'en validation croisée (pas de surapprentissage), entraînement en 2,5 s.
+Les variables les plus importantes sont le statut marital, les gains en capital, l'âge et le
+niveau d'études. Justification complète dans [`notebooks/02_modeling.ipynb`](notebooks/02_modeling.ipynb),
+section 9.
+
+**Équité** : le modèle détecte moins bien les femmes qui gagnent plus de 50K (recall 0,65 contre
+0,72 pour les hommes) ; il reproduit les inégalités présentes dans les données de 1994.
 
 ## Installation
 
@@ -143,6 +156,6 @@ Détails : [`CONTRIBUTING.md`](CONTRIBUTING.md) et [`docs/organisation.md`](docs
 
 | Membre | GitHub | Rôle principal |
 |--------|--------|----------------|
-| Daoud  | @fadid351 | |
-| Gangi  | @silviogng | |
-| Bart   | à compléter | |
+| Daoud  | @fadid351 | Socle MLOps : structure du repo, CI, chargement des données |
+| Gangi  | @silviogng | Statistiques descriptives, tests, documentation, entraînement final |
+| Bart   | @frantrab08 | Preprocessing, modèles, suivi MLflow, API |
