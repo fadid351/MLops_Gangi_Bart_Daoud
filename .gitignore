@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (versionnée via DVC, pas Git)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Modèles (versionnés via MLflow/DVC)
+models/*
+!models/.gitkeep
+
+# Environnement
+.env
+*.env
+.env.local
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC
+.dvc/cache
+.dvc/tmp
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
+.coverage
+htmlcov/
+.pytest_cache/
