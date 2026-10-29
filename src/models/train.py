@@ -92,8 +92,13 @@ class Tracker:
             mlflow.log_artifact(str(path))
 
     def model(self, model, name: str = "model"):
-        if self.enabled:
-            mlflow.sklearn.log_model(model, name)
+        if not self.enabled:
+            return
+        try:
+            mlflow.sklearn.log_model(model, name=name, serialization_format="cloudpickle")
+        except Exception as e:  # selon la version de MLflow
+            print(f"Modèle non enregistré par MLflow ({type(e).name}) : ajout du fichier joblib.")
+            mlflow.log_artifact(str(MODEL_PATH))
 
 
 def save_figure(draw, filename: str, tracker: Tracker) -> None:

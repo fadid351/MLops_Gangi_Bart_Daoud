@@ -1,0 +1,5 @@
+modele,roc_auc_mean,roc_auc_std,fit_time_s,best_params
+Gradient Boosting,0.928859925176098,0.0015258434461014427,2.0578610420227053,"{""model__min_samples_leaf"": 50, ""model__max_leaf_nodes"": 15, ""model__max_iter"": 200, ""model__learning_rate"": 0.1, ""model__l2_regularization"": 0.1}"
+Random Forest,0.9201317334629373,0.002011279732334218,4.402625465393067,"{""model__n_estimators"": 200, ""model__min_samples_leaf"": 2, ""model__max_features"": 0.3, ""model__max_depth"": 15}"
+Arbre de décision,0.9068507211801956,0.0026095212134295037,0.39748244285583495,"{""model__min_samples_leaf"": 10, ""model__max_depth"": 8, ""model__criterion"": ""gini""}"
+Régression logistique,0.8984952174855778,0.002813881471090042,0.28932838439941405,"{""model__class_weight"": ""balanced"", ""model__C"": 3}"

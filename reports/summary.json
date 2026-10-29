@@ -1,0 +1,31 @@
+{
+  "modele": "Gradient Boosting",
+  "hyperparametres": {
+    "model__min_samples_leaf": 50,
+    "model__max_leaf_nodes": 15,
+    "model__max_iter": 200,
+    "model__learning_rate": 0.1,
+    "model__l2_regularization": 0.1
+  },
+  "seuil": 0.4232087069249765,
+  "cv_roc_auc": 0.928859925176098,
+  "test": {
+    "seuil_0.5": {
+      "accuracy": 0.8727,
+      "precision": 0.7734,
+      "recall": 0.6524,
+      "f1": 0.7078,
+      "roc_auc": 0.927,
+      "pr_auc": 0.8246
+    },
+    "seuil_optimal": {
+      "accuracy": 0.8679,
+      "precision": 0.7237,
+      "recall": 0.7129,
+      "f1": 0.7183,
+      "roc_auc": 0.927,
+      "pr_auc": 0.8246
+    }
+  },
+  "duree_s": 135.6
+}

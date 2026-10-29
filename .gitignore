@@ -51,3 +51,4 @@ Thumbs.db
 htmlcov/
 .pytest_cache/
 
+mlflow.db
