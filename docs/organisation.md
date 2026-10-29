@@ -2,15 +2,16 @@
 
 ## Répartition des rôles
 
-Chaque membre a un domaine principal, mais **chaque Pull Request est relue par un autre membre**.
+Chaque membre a un domaine principal. Tout le code passe par une branche `feature/*` et une
+Pull Request vers `develop`, relue par un autre membre.
 
-| | Daoud | Gangi | Bart |
+| | Daoud | Bart | Gangi |
 |---|---|---|---|
-| **Domaine** | Infrastructure MLOps & API | Données & EDA | Modélisation & évaluation |
-| **Code** | `src/api/`, CI, Makefile, tracking MLflow (`train.py`) | `config.py`, `src/data/`, `scripts/` | `src/features/`, `models.py`, `evaluate.py` |
-| **Notebook** | — | `01_eda.ipynb` | `02_modeling.ipynb` |
-| **Tests** | `test_api.py`, `test_predictor.py` | `test_data.py`, `conftest.py` | `test_features_models.py` |
-| **Relit** | les PR de Gangi | les PR de Bart | les PR de Daoud |
+| **Domaine** | Socle MLOps | Modélisation & API | Données, qualité & résultats |
+| **Code** | Structure du repo, CI, Makefile, `config.py`, `src/data/` | `src/features/`, `src/models/`, `src/api/` | `tests/`, entraînement final, correctif MLflow |
+| **Notebook** | — | `02_modeling.ipynb` | `01_eda.ipynb` |
+| **Documentation** | README initial | — | README, `docs/` |
+| **Pull Requests** | `feature/socle` | `feature/modeles` | `feature/eda-tests-doc`, `feature/resultats` |
 
 ## Déroulé
 
