@@ -14,10 +14,8 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data (versionnée via DVC, pas Git)
-data/raw/*
+# Data 
 data/processed/*
-!data/raw/.gitkeep
 !data/processed/.gitkeep
 
 # Modèles (versionnés via MLflow/DVC)
