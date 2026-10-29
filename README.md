@@ -61,4 +61,4 @@ pip install -r requirements.txt
 |--------|--------|
 | Daoud  | @fadid351 |
 | Gangi  | @silviogng |
-| Bart   | à compléter |
+| Bart   | @frantrab08 |
