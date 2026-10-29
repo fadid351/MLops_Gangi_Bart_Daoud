@@ -14,8 +14,10 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data 
+# Data (versionnée via DVC, pas Git)
+data/raw/*
 data/processed/*
+!data/raw/.gitkeep
 !data/processed/.gitkeep
 
 # Modèles (versionnés via MLflow/DVC)
@@ -48,3 +50,4 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+

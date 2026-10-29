@@ -14,23 +14,23 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-
-    - name: Cache pip
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        cache: pip
 
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+    - name: Lint (ruff)
+      run: ruff check .
+
+    # Les tests utilisent des données synthétiques : pas besoin de télécharger le dataset.
     - name: Run tests
       run: pytest tests/ -v --cov=src --cov-report=xml
 
     - name: Upload coverage
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
-        file: ./coverage.xml
+        files: ./coverage.xml
+        fail_ci_if_error: false
