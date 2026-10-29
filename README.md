@@ -1,6 +1,6 @@
 # MLops_Gangi_Bart_Daoud
 
-Projet MLOps — Master 1 Data Science  
+Projet MLOps — Master 2 Data Science  
 Équipe : Gangi · Bart · Daoud
 
 ---
@@ -60,5 +60,5 @@ pip install -r requirements.txt
 | Membre | GitHub |
 |--------|--------|
 | Daoud  | @fadid351 |
-| Gangi  | à compléter |
+| Gangi  | @silviogng |
 | Bart   | à compléter |
