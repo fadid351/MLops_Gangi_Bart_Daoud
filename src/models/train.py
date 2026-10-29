@@ -5,7 +5,6 @@ import mlflow
 import mlflow.sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score
-import pandas as pd
 import joblib
 from pathlib import Path
 
